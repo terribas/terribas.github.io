@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <title>Random Walk ATR</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="css/style.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+</head>
+
+<body>
+   <div class="container d-md-flex align-items-stretch">
+
+      <div id="content" class="p-4 pt-5">
+         <h2 class="mb-4">First Pseudo-Random generator algorithm</h2>
+         <img src="images/vonneumann.png" class="img-textaround-right img-small"/>
+         <p>
+            In 1946, John von Neumann participated in performing mathematical calculations for the military, specifically for the development of the hydrogen bomb. Using the ENIAC, there was a continuous need to calculate approximations of the processes involved in nuclear fission. This required rapid access to random numbers and the ability to access them again if necessary.
+         </p>
+         <p>
+            However, the ENIAC had very limited memory, and storing random sequences was not possible. Therefore, John von Neumann designed an algorithm that simulated the generation of random numbers. It is known as the Middle-Square method and works as follows:
+            <ol>
+               <li>Obtain a purely random number that will be our seed.</li>
+               <li>Square the seed.</li>
+               <li>The sequence of numbers located in the middle of the resulting number will be the new seed. Add it to our result.</li>
+               <li>Go back to step 2.</li>
+            </ol>
+            An example: Starting from the seed 2023:
+            <ol>
+               <li>
+                  <span class="text-monospace">2023^2 = 04<span class="bold-blue">0925</span>29</span>
+               </li>
+               <li>
+                  <span class="text-monospace">0925^2 = 00<span class="bold-blue">8556</span>25</span>
+               </li>
+               <li>
+                  <span class="text-monospace">8556^2 = 73<span class="bold-blue">2051</span>36</span>
+               </li>
+               <li>
+                  <span class="text-monospace">2051^2 = 04<span class="bold-blue">2066</span>01</span>
+               </li>
+               <li>
+                  <span class="text-monospace">2066^2 = 04<span class="bold-blue">2683</span>56</span>
+               </li>
+               <li>
+                  <span class="text-monospace">2683^2 = 07<span class="bold-blue">1984</span>89</span>
+               </li>
+            </ol>
+            And so on, until numbers start repeating.
+         </p>
+
+
+
+      </div>
+
+      <nav id="sidebar">
+         <div class="p-4 pt-5">
+            <h5><a href="index.html">Random Walker</a></h5>
+            <ul class="list-unstyled components mb-5">
+               <li>
+                  <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="true"
+                     class="dropdown-toggle">Introduction</a>
+                  <ul class="list-unstyled" id="pageSubmenu4">
+                     <li><a href="importance.html"><span class="fa fa-chevron-right mr-2"></span>
+                           Importance of randomness in
+                           Computer Science</a></li>
+                     <li><a href="entropy.html"><span class="fa fa-chevron-right mr-2"></span>
+                           Concept of Entropy</a></li>
+                     <li><a href="pseudorandomness.html"><span class="fa fa-chevron-right mr-2"></span>
+                           Pseudo-Randomness</a></li>
+                     <li><a href="firstalgorithm.html"><span class="fa fa-chevron-right mr-2"></span>
+                        <span class="font-weight-bold">First Pseudorandom algorithm</span></a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="randomwalk.html" data-toggle aria-expanded="false" class>Random Walker - First Approach</a>
+               </li>
+               <li>
+                  <a href="randomwalk_improved.html" data-toggle aria-expanded="false" class>Random Walker - First Approach (Improved)</a>
+               </li>
+               <li>
+                  <a href="randomwalk_line.html" data-toggle aria-expanded="false" class>Random Walker - Line Version</a>
+               </li>
+               <li>
+                  <a href="randomwalk_seed.html" data-toggle aria-expanded="false" class>Random Walker - Custom Seed</a>
+               </li>
+            </ul>
+            <div class="mb-5">
+               <h5>Made by</h5>
+               <h5>Alejandro Terribas Ruiz</h5>
+            </div>
+         </div>
+      </nav>
+   </div>
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/main.js"></script>
+</body>
+
+</html>

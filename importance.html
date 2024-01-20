@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <title>Random Walk ATR</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="css/style.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+</head>
+
+<body>
+   <div class="container d-md-flex align-items-stretch">
+
+      <div id="content" class="p-4 pt-5">
+         <h2 class="mb-4">Importance of randomness in Computer Science</h2>
+
+         <p><img src="images/security.png" class="img-centerblock img-small"/></p>
+         <p>
+            Without us realizing it, our devices, whether they are mobile phones, computers, tablets, etc..., are constantly generating countless "random" numbers. Even though we may not be aware of this, these numbers are crucial for our security, mostly used in cryptography in the form of nonces. A nonce (Number used once) is a random number that can only be used once in a protocol, ensuring that a specific message is unique and that another with the same content is not accepted. Among many other uses, some notable ones include:
+         </p>
+         <ul>
+            <li>
+               <span class="font-weight-bold">Authentication:</span> Nonces are used by authentication protocols to ensure that old communications cannot be replayed.
+            </li>
+            <li>
+               <span class="font-weight-bold">Initialization Vectors:</span> Alongside a secret key, an initialization vector uses a nonce to encrypt data. Adding this random number to encryption prevents repetitive patterns that could allow attackers to decrypt the message.
+            </li>
+            <li>
+               <span class="font-weight-bold">Identification</span> In logins or account recovery, two-factor authentication uses random numbers.
+            </li>
+            <li>
+               <span class="font-weight-bold">Secure Connection:</span> The TLS protocol uses 2 nonces, one from the client and one from the server. We constantly use this protocol to browse the internet, providing confidentiality and authenticity of data during transmission. As we can imagine, it is important that these values are as random as possible, as predictability would compromise security.
+            </li>
+         </ul>
+      </div>
+
+      <nav id="sidebar">
+         <div class="p-4 pt-5">
+            <h5><a href="index.html">Random Walker</a></h5>
+            <ul class="list-unstyled components mb-5">
+               <li>
+                  <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="true"
+                     class="dropdown-toggle">Introduction</a>
+                  <ul class="list-unstyled" id="pageSubmenu4">
+                     <li><a href="importance.html"><span class="fa fa-chevron-right mr-2"></span>
+                           <span class="font-weight-bold">Importance of randomness in Computer Science</span></a></li>
+                     <li><a href="entropy.html"><span class="fa fa-chevron-right mr-2"></span>
+                           Concept of Entropy</a></li>
+                     <li><a href="pseudorandomness.html"><span class="fa fa-chevron-right mr-2"></span>
+                           Pseudo-Randomness</a></li>
+                     <li><a href="firstalgorithm.html"><span class="fa fa-chevron-right mr-2"></span>
+                           First Pseudorandom algorithm</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="randomwalk.html" data-toggle aria-expanded="false" class>Random Walker - First Approach</a>
+               </li>
+               <li>
+                  <a href="randomwalk_improved.html" data-toggle aria-expanded="false" class>Random Walker - First Approach (Improved)</a>
+               </li>
+               <li>
+                  <a href="randomwalk_line.html" data-toggle aria-expanded="false" class>Random Walker - Line Version</a>
+               </li>
+               <li>
+                  <a href="randomwalk_seed.html" data-toggle aria-expanded="false" class>Random Walker - Custom Seed</a>
+               </li>
+            </ul>
+            <div class="mb-5">
+               <h5>Made by</h5>
+               <h5>Alejandro Terribas Ruiz</h5>
+            </div>
+         </div>
+      </nav>
+   </div>
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <title>Random Walk ATR</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="css/style.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+</head>
+
+<body>
+   <div class="container d-md-flex align-items-stretch">
+
+      <div id="content" class="p-4 pt-5">
+         <h2 class="mb-4">Entropy</h2>
+         <p>
+            We already know that <a href="importance.html">random numbers are valuable and essential in computing</a>, especially in cybersecurity. However, a computer is a machine whose operation we program and from which we expect a deterministic behavior. Random number generation is a non-deterministic task. So, how do we translate this task to the computer? Is it really possible?
+         </p>
+         <p>
+            <img src="images/dices.png" class="img-textaround-right img-small"/>
+            The concept of entropy in <span class="bold-blue">physics</span> is generally associated with the measurement of the amount of disorder or chaos in a system. Natural sources of entropy can be found in the flow of water in a river, ambient noise in decibels, temperature variations, etc.
+         </p>
+         <p>
+            However, in a computer, there may be other sources of noise that can constantly provide us with purely random values, such as keyboard strokes, mouse movement, network flow, current electricity, sound captured by the microphone... This is what we call entropy. The more noise, the more entropy, and therefore, the less predictable.
+         </p>
+         <p>
+            Randomness is so important that operating systems have their own mechanisms to manage entropy. For example, in Linux, obtained entropy is stored in the files <code>/dev/random</code> and <code>/dev/urandom</code>. The difference between these two files lies in the entropy check: while a request to /dev/urandom will return a value even if there is not much entropy in the source, /dev/random will check first if the amount of entropy in the system is sufficient to reach the specified minimum and will block the request until that minimum is satisfied.
+         </p>
+         <p>
+            From these sources of entropy, we can obtain purely random numbers. However, this can be a costly process, and the flow of random numbers we need may be greater than the entropy the computer can gather, leading to blocking.
+         </p>
+         <p>
+            Therefore, to fulfill the mission of generating random numbers on a computer securely and efficiently, starting from an initially purely random number (seed), we can continue generating a sequence of pseudo-random numbers from such a seed using a 
+            <a href="pseudorandomness.html">pseudo-random number generator (PRNG)</a>.
+         </p>
+         <p>
+            As a curiosity, Cloudflare uses its own entropy generation system. In one of the walls of its headquarters, there are 100 lava lamps. A camera continuously takes pictures of the lamps, and from each image, a completely random value is obtained, as each pixel has its numeric value:
+         </p>
+         <p>
+            <img class="img-fill" src="images/cloudflare.png"/>
+         </p>
+      </div>
+
+      <nav id="sidebar">
+         <div class="p-4 pt-5">
+            <h5><a href="index.html">Random Walker</a></h5>
+            <ul class="list-unstyled components mb-5">
+               <li>
+                  <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="true"
+                     class="dropdown-toggle">Introduction</a>
+                  <ul class="list-unstyled" id="pageSubmenu4">
+                     <li><a href="importance.html"><span class="fa fa-chevron-right mr-2"></span>
+                           Importance of randomness in
+                           Computer Science</a></li>
+                     <li><a href="entropy.html"><span class="fa fa-chevron-right mr-2"></span>
+                        <span class="font-weight-bold">Concept of Entropy</span></a></li>
+                     <li><a href="pseudorandomness.html"><span class="fa fa-chevron-right mr-2"></span>
+                           Pseudo-Randomness</a></li>
+                     <li><a href="firstalgorithm.html"><span class="fa fa-chevron-right mr-2"></span>
+                           First Pseudorandom algorithm</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="randomwalk.html" data-toggle aria-expanded="false" class>Random Walker - First Approach</a>
+               </li>
+               <li>
+                  <a href="randomwalk_improved.html" data-toggle aria-expanded="false" class>Random Walker - First Approach (Improved)</a>
+               </li>
+               <li>
+                  <a href="randomwalk_line.html" data-toggle aria-expanded="false" class>Random Walker - Line Version</a>
+               </li>
+               <li>
+                  <a href="randomwalk_seed.html" data-toggle aria-expanded="false" class>Random Walker - Custom Seed</a>
+               </li>
+            </ul>
+            <div class="mb-5">
+               <h5>Made by</h5>
+               <h5>Alejandro Terribas Ruiz</h5>
+            </div>
+         </div>
+      </nav>
+   </div>
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/main.js"></script>
+</body>
+
+</html>

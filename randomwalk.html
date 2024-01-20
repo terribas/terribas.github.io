@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <title>Random Walk ATR</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="css/style.css">
+   <link href="css/prism.css" rel="stylesheet" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+</head>
+
+<body>
+   <div class="container d-md-flex align-items-stretch">
+
+      <div id="content" class="p-4 pt-5">
+         <h2 class="mb-4">Random Walker - First Approach</h2>
+         
+         <a href="https://www.youtube.com/watch?v=l__fEY1xanY" target="_blank">This coding challenge</a> suggested for this subject gives us a very good first approach of a random walker. This allows us to check
+         the efectiveness of our pseudo-random numbers generator. In this case, our random numbers come from the built-in javascript pseudo-random
+         numbers generator:
+
+         <div class="center-canvas">
+            <div id="canvas-parent">
+               <script src="sketches/randomwalk.js"></script>
+            </div>
+         </div>
+
+         
+         <pre>
+            <code class="language-js">
+// Daniel Shiffman
+// http://codingtra.in
+// https://youtu.be/l__fEY1xanY
+// https://thecodingtrain.com/CodingChallenges/052-random-walk.html
+
+let x;
+let y;
+
+function setup() {
+   createCanvas(400, 400);
+   x = width / 2;
+   y = height / 2;
+   background(51);
+}
+
+function draw() {
+   stroke(255, 100);
+   strokeWeight(2);
+   point(x, y);
+   const r = floor(random(4));
+   switch (r) {
+      case 0:
+      x = x + 1;
+      break;
+      case 1:
+      x = x - 1;
+      break;
+      case 2:
+      y = y + 1;
+      break;
+      case 3:
+      y = y - 1;
+      break;
+   }
+}
+            </code>
+         </pre>
+
+         However, we can always improve it to make it look better. Some improvements could be adding a button to start the random walk, as well as
+         adding the possibility to change the speed and randomly change the color of the path. <a href="randomwalk_improved.html">We can see an improved version here.</a>
+      </div>
+
+      <nav id="sidebar">
+         <div class="p-4 pt-5">
+            <h5><a href="index.html">Random Walker</a></h5>
+            <ul class="list-unstyled components mb-5">
+               <li>
+                  <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="true"
+                     class="dropdown-toggle">Introduction</a>
+                  <ul class="list-unstyled" id="pageSubmenu4">
+                     <li><a href="importance.html"><span class="fa fa-chevron-right mr-2"></span>
+                           Importance of randomness in
+                           Computer Science</a></li>
+                     <li><a href="entropy.html"><span class="fa fa-chevron-right mr-2"></span>
+                           Concept of Entropy</a></li>
+                     <li><a href="pseudorandomness.html"><span class="fa fa-chevron-right mr-2"></span>
+                           Pseudo-Randomness</a></li>
+                     <li><a href="firstalgorithm.html"><span class="fa fa-chevron-right mr-2"></span>
+                           First Pseudorandom algorithm</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="randomwalk.html" data-toggle aria-expanded="false" class>
+                     <span class="bold-blue">Random Walker - First Approach</span>
+                  </a>
+               </li>
+               <li>
+                  <a href="randomwalk_improved.html" data-toggle aria-expanded="false" class>Random Walker - First Approach (Improved)</a>
+               </li>
+               <li>
+                  <a href="randomwalk_line.html" data-toggle aria-expanded="false" class>Random Walker - Line Version</a>
+               </li>
+               <li>
+                  <a href="randomwalk_seed.html" data-toggle aria-expanded="false" class>Random Walker - Custom Seed</a>
+               </li>
+            </ul>
+            <div class="mb-5">
+               <h5>Made by</h5>
+               <h5>Alejandro Terribas Ruiz</h5>
+            </div>
+         </div>
+      </nav>
+   </div>
+   <script src="js/prism.js"></script>
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/main.js"></script>
+</body>
+
+</html>

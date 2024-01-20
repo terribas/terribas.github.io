@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <title>Random Walk ATR</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="css/style.css">
+   <link href="css/prism.css" rel="stylesheet" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+
+   <script>
+      var selected_speed = 1;
+      function changeLabel(value) {
+         selected_speed = value;
+         document.getElementById('speed_label').innerHTML = "Speed: " + value;
+      }
+   </script>
+</head>
+
+<body>
+   <div class="container d-md-flex align-items-stretch">
+
+      <div id="content" class="p-4 pt-5">
+         <h2 class="mb-4">Random Walker - Line version</h2>
+         
+         
+         The difference of this version is that, instead of choosing the next point by randomly picking 
+         the next/previous x or y point, here this random walker draws lines connecting consecutive positions 
+         on the canvas and has larger, more continuous movements by adding larger random values to the x and y coordinates.<br/>
+         Moreover, generated coordinates nextX and nextY are constrained to ensure they stay within the canvas limits, preventing 
+         the drawn line from extending beyond the visible borders of the canvas: <br/><br/>
+
+         <label id="speed_label" for="speed_input">Speed: 1</label><br/>
+         <input id="speed_input" type="range" min="1" max="10" step="1" value="1" onchange="changeLabel(this.value)"/>
+         <input type="button" value="Run" onclick="setupOnClick(selected_speed);"/>
+
+         <div class="center-canvas">
+            <div id="canvas-parent">
+               <script src="sketches/randomwalk_line.js"></script>
+            </div>
+         </div>
+
+         
+         <pre>
+            <code class="language-js">
+let x, y;
+let r, g, b;
+let currentSpeed = 1;
+
+// Initially will show an empty canvas
+function setup() {
+   var canvas = createCanvas(400, 400);
+   canvas.parent('canvas-parent')
+   background(51);
+}
+
+// Working canvas will be set when clicked the button
+function setupOnClick(speed) {
+   currentSpeed = speed;
+   var canvas = createCanvas(400, 400);
+   canvas.parent('canvas-parent')
+   x = width / 2;
+   y = height / 2;
+   r = random(255), g = random(255), b = random(255);
+   background(51);
+}
+
+function draw() {
+   for (let i = 0; i < currentSpeed; i++) {
+      let nextX = x + random(-20, 20);
+      let nextY = y + random(-20, 20);
+      nextX = constrain(nextX, 0, width);
+      nextY = constrain(nextY, 0, height);
+   
+      r += random(-10, 10);
+      g += random(-10, 10);
+      b += random(-10, 10);
+      r = constrain(r, 0, 255);
+      g = constrain(g, 0, 255);
+      b = constrain(b, 0, 255);
+   
+      stroke(r, g, b);
+      line(x, y, nextX, nextY);
+   
+      x = nextX;
+      y = nextY;
+   }
+}
+            </code>
+         </pre>
+      </div>
+
+      <nav id="sidebar">
+         <div class="p-4 pt-5">
+            <h5><a href="index.html">Random Walker</a></h5>
+            <ul class="list-unstyled components mb-5">
+               <li>
+                  <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="true"
+                     class="dropdown-toggle">Introduction</a>
+                  <ul class="list-unstyled" id="pageSubmenu4">
+                     <li><a href="importance.html"><span class="fa fa-chevron-right mr-2"></span>
+                           Importance of randomness in
+                           Computer Science</a></li>
+                     <li><a href="entropy.html"><span class="fa fa-chevron-right mr-2"></span>
+                           Concept of Entropy</a></li>
+                     <li><a href="pseudorandomness.html"><span class="fa fa-chevron-right mr-2"></span>
+                           Pseudo-Randomness</a></li>
+                     <li><a href="firstalgorithm.html"><span class="fa fa-chevron-right mr-2"></span>
+                           First Pseudorandom algorithm</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="randomwalk.html" data-toggle aria-expanded="false" class>Random Walker - First Approach</a>
+               </li>
+               <li>
+                  <a href="randomwalk_improved.html" data-toggle aria-expanded="false" class>Random Walker - First Approach (Improved)</a>
+               </li>
+               <li>
+                  <a href="randomwalk_line.html" data-toggle aria-expanded="false" class>
+                     <span class="bold-blue">Random Walker - Line Version</span>
+                  </a>
+               </li>
+               <li>
+                  <a href="randomwalk_seed.html" data-toggle aria-expanded="false" class>Random Walker - Custom Seed</a>
+               </li>
+            </ul>
+            <div class="mb-5">
+               <h5>Made by</h5>
+               <h5>Alejandro Terribas Ruiz</h5>
+            </div>
+         </div>
+      </nav>
+   </div>
+   <script src="js/prism.js"></script>
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/main.js"></script>
+</body>
+
+</html>

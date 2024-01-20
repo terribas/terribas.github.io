@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <title>Random Walk ATR</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="css/style.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+</head>
+
+<body>
+   <div class="container d-md-flex align-items-stretch">
+
+      <div id="content" class="p-4 pt-5">
+         <h2 class="mb-4">Pseudo-Randomness</h2>
+         <p>
+            While we can have sources of entropy, in some cases, it is more convenient to generate pseudo-random numbers. Unlike pure random numbers, these are generated from a purely random initial number (seed) to obtain a large enough sequence of unpredictable numbers. Through certain algorithms, sequences generated from a seed are chaotic enough to give the impression of being random.
+         </p>
+         <p>
+            This process, following an algorithm, is deterministic, meaning: for the same seed, the sequence generated will be the same. A characteristic of pseudo-random number generators (PRNG) is the period, i.e., for how long a pseudo-random sequence can be generated without returning to the same initial point, i.e., the seed. This means that in certain PRNG algorithms, the chain can repeat indefinitely reached a length. This directly depends on the length of the seed: the longer the seed, the longer the period will be.
+         </p>
+         <p>
+            It is desirable that a PRNG satisfies the following properties:
+
+            <ul>
+               <li>
+                  <span class="font-weight-bold">Uniformity: </span>
+                  Generated numbers should follow a uniform distribution. Therefore, each number in the specified 
+                  range has the same probability of being generated.
+               </li>
+               <li>
+                  <span class="font-weight-bold">Independence: </span>The generation of a number should not depend on previously generated numbers. 
+                  There should also be no pattern with which, given the previous numbers, the next one can be predicted. We can 
+                  <a href="randomwalk_line.html">visually verify in any Random Walker</a> if this property is satisfied by observing that no predictable patterns occur.
+               </li>
+               <li>
+                  <span class="font-weight-bold">Long Periodicity: </span>The generator should have a long enough period before it starts repeating the sequence of 
+                  generated numbers. A short period could result in the same sequence repeating over and over, being completely predictable. 
+                  We can <a href="randomwalk_line.html">visually verify in any Random Walker</a> if this property is satisfied by observing 
+                  that the drawn path does not repeat.
+               </li>
+               <li>
+                  <span class="font-weight-bold">Reproducibility: </span>When starting the generator with a seed, it should always generate the same 
+                  frequency for that same seed. This is also useful for reproducing experiments with the same set of input data or for video games. 
+                  We can visually check this property in the <a href="randomwalk_seed.html">Random Walker with custom seed input</a>.
+               </li>
+               <li>
+                  <span class="font-weight-bold">Efficiency: </span>It should be efficient in runtime and resource usage, generating numbers quickly without requiring too many computational resources.
+               </li>
+            </ul>
+         </p>
+      </div>
+
+      <nav id="sidebar">
+         <div class="p-4 pt-5">
+            <h5><a href="index.html">Random Walker</a></h5>
+            <ul class="list-unstyled components mb-5">
+               <li>
+                  <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="true"
+                     class="dropdown-toggle">Introduction</a>
+                  <ul class="list-unstyled" id="pageSubmenu4">
+                     <li><a href="importance.html"><span class="fa fa-chevron-right mr-2"></span>
+                           Importance of randomness in
+                           Computer Science</a></li>
+                     <li><a href="entropy.html"><span class="fa fa-chevron-right mr-2"></span>
+                           Concept of Entropy</a></li>
+                     <li><a href="pseudorandomness.html"><span class="fa fa-chevron-right mr-2"></span>
+                        <span class="font-weight-bold">Pseudo-Randomness</span></a></li>
+                     <li><a href="firstalgorithm.html"><span class="fa fa-chevron-right mr-2"></span>
+                           First Pseudorandom algorithm</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="randomwalk.html" data-toggle aria-expanded="false" class>Random Walker - First Approach</a>
+               </li>
+               <li>
+                  <a href="randomwalk_improved.html" data-toggle aria-expanded="false" class>Random Walker - First Approach (Improved)</a>
+               </li>
+               <li>
+                  <a href="randomwalk_line.html" data-toggle aria-expanded="false" class>Random Walker - Line Version</a>
+               </li>
+               <li>
+                  <a href="randomwalk_seed.html" data-toggle aria-expanded="false" class>Random Walker - Custom Seed</a>
+               </li>
+            </ul>
+            <div class="mb-5">
+               <h5>Made by</h5>
+               <h5>Alejandro Terribas Ruiz</h5>
+            </div>
+         </div>
+      </nav>
+   </div>
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/main.js"></script>
+</body>
+
+</html>
